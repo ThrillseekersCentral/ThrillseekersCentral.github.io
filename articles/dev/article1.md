@@ -1,6 +1,6 @@
 ---
 layout: layout/article.njk
-authors: ["1"]
+authors: ["sys"]
 tags:
 
 title: "Test Article 2024"
