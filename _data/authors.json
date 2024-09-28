@@ -1,5 +1,12 @@
 [
     {
+        "id": "sys",
+        "name": "System",
+        "Rank": "Director",
+        "Socials": {
+        }
+    },
+    {
         "id": "1",
         "name": "Jake",
         "Rank": "Director",
