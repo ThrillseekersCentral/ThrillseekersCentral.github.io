@@ -1,4 +1,4 @@
-Sitemap: https://jakeplays12.github.io/sitemap.xml
+Sitemap: https://thrillseekerscentral.github.io/sitemap.xml
 
 User-agent: *
 Disallow:
