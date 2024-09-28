@@ -1,0 +1,13 @@
+{
+    "1": {
+      "name": "Author One",
+      "bio": "This is Author One's bio.",
+      "social": "@authorone"
+    },
+    "2": {
+      "name": "Author Two",
+      "bio": "This is Author Two's bio.",
+      "social": "@authortwo"
+    }
+  }
+  

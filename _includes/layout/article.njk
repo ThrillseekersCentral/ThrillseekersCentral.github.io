@@ -1,0 +1,78 @@
+---
+templateClass: tmpl-home
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "components/seo.njk" %}
+
+    <link rel="stylesheet" href="/assets/css/article_parktags.css" />
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/article.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <!-- Header -->
+    {% include "components/header.njk" %}
+    <!-- Header -->
+
+    <div class="Content">
+
+        <div class="article_pageimg">
+            <img src="{{pageimg}}">
+            <span>{{tag}}</span>
+        </div>
+
+
+
+
+        <div class="articleContent">
+
+            <div class="PageInfo">
+                <h1 class="PageInfo_Title">{{title}}</h1>
+                <hr>
+                <p id="authors" class="PageInfo_Author">
+
+    {% for link in authors %}
+    {% if link.id in authors %}
+    <span class="PageInfo_Rank_{{link.Rank}}">{{ link.name }}</span>
+        
+        {% endif %}{% endfor %}
+
+                </p>
+                <p id="ranks" class="PageInfo_Rank"></p>
+                <p class="PageInfo_Date"><i class="fa-solid fa-clock"></i> {{ page.date | formatDate }}</p>
+            </div>
+
+
+            {{ content | safe }}
+        </div>
+        
+        <div class="ArticleTags">
+
+          {% for tag in tags %}
+          <a id="PostTag_{{tag | slugify}}" href="/articles/tags/{{tag | slugify}}">{{tag}}</a>
+          {% endfor %}
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    {% include "components/footer.njk" %}
+    <!-- Footer -->
+
+    <script src="/assets/js/UserIdentifier.js"></script>
+
+</body>
+
+</html>

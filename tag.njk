@@ -1,0 +1,48 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  addAllPagesToCollections: true
+layout: layout/mainBlank.njk
+permalink: /articles/tags/{{ tag | slugify }}/index.html
+eleventyComputed:
+  title: Posts Tagged with "{{ tag }}"
+---
+
+<link rel="stylesheet" href="/assets/css/article_parktags.css" />
+<link rel="stylesheet" href="/assets/css/article.css" />
+
+<h1 style=" width: fit-content; margin-inline: auto;"">Articles Tagged With {{ tag }}</h1>
+
+{# <ul>
+  {% for post in collections[tag] | sortByDate %}
+  <li>
+    <h2>{{ post.data.title }}</h2>
+    <p>Date: {{ post.data.blogdate }}</p>
+    <img src="{{ post.data.pageimg | default('/assets/img/blank.png') }}" alt="{{ post.data.title }}">
+    <p>{{ post.data.summary }}</p>
+  </li>
+  {% endfor %}
+</ul> #}
+
+<div class="PostsList" style="max-width: 90%;margin-inline: auto;">
+
+  {% for post in collections[tag] | sortByDate %}
+  <a href="{{ post.url }}">
+  <div class="PostBit">
+    <img src="{{ post.data.pageimg | default('/assets/img/blank.png') }}">
+
+    <div class="PostInfo">
+      <h3>{{ post.data.title }}</h3>
+      <span><i class="fa-solid fa-user"></i>{{ post.data.author }}</span><br>
+      <span><i class="fa-solid fa-clock"></i>{{ post.data.date | formatDate }}</span>
+      <p>{{ post.data.summary }}</p>
+
+    </div>
+
+  </div>
+</a>
+  {% endfor %}
+</div>
+

@@ -1,0 +1,150 @@
+---
+layout: layout/main.njk
+title: "Articles"
+---
+<link rel="stylesheet" href="/assets/css/article_parktags.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<h1 style="font-size: 50px; font-weight: 700; width: fit-content; margin-inline:auto">Theme Park Articles</h1>
+
+<div class="GridContainer">
+
+    {% for page in collections.articles | sortByDate %}
+    {% if loop.index0 < 3 %}    
+  
+      <div class="Grid_{{ loop.index }} GridItem" style="--gridbackground: url({{ page.data.pageimg | default('/assets/img/blank.png') }})">
+        <a href="{{ page.url | url }}">
+          <div class="Data">
+            <span id="PostTag_{{ page.data.tag | slugify}}">{{ page.data.tag }}</span>
+            <h3>{{ page.data.title }}</h3>
+            <div>
+              <p><i class="fa-regular fa-clock"></i> {{ page.data.date | formatDate }}</p>
+              <p><i class="fa-regular fa-user"></i> {{ page.data.author }}</p>
+            </div>
+          </div>
+        </a>
+      </div> 
+  
+    {% endif %}
+  {% endfor %}
+
+    <div class="Grid_4" style="display: flex;align-items: center;">
+        <a href="{% for page in collections.articles | sortByDate %}{% if loop.index0 < 1 %}{{ page.url | url }}{% endif %}{% endfor %}" style="--ABackground:#3d007b; --AText:#bc7bff" href="#"><i class="fa-regular fa-clock"></i> Latest Post</a>
+        <a style="--ABackground:#3c7b00; --AText:#bbff7b" href="#"><i class="fa-regular fa-user"></i> Authors</a>
+    </div>
+
+</div>
+
+<style>
+
+    .Grid_4 a{
+        background-color: var(--ABackground);
+        color: var(--AText);
+        font-size: 20px;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-weight: 550;
+        text-decoration: none;
+        margin-right: 12px;
+        transform: scale(1);
+        transition: transform 0.3s ease-in-out;
+    }
+    .Grid_4 a:hover{
+        transform: scale(1.1);
+    }
+
+    .GridContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) 0.9fr;
+        grid-template-rows: 0.2fr repeat(2, 1.2fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    }
+
+    .Grid_1 {
+        grid-area: 1 / 1 / 4 / 3;
+        height: 510px;
+    }
+
+    .Grid_4 {
+        grid-area: 1 / 3 / 2 / 4;
+    }
+
+    .Grid_2 {
+        grid-area: 2 / 3 / 3 / 4;
+    }
+
+    .Grid_3 {
+        grid-area: 3 / 3 / 4 / 4;
+    }
+
+    .Data {
+        position: absolute;
+        bottom: 0;
+        padding: 10px;
+        width: 90%;
+    }
+
+    .GridItem{position: relative;overflow: hidden;border-radius: 12px; border: 1px solid var(--border);}
+
+    .GridItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--gridbackground);
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    transition: filter 0.3s ease;
+    border-radius: 12px;
+}
+
+.GridItem:hover::before {
+    filter: blur(5px); /* Adjust the blur intensity as needed */
+}
+
+    .Data span{
+    padding: 3px 6px;
+    background-color: var(--TagBackground);
+    color: var(--TagText);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 5px 0 0;
+}
+
+.Data h3{
+    color: var(--text);
+    font-size: 25px;
+    font-weight: bold;
+    margin: 5px 0 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 90%;
+}
+
+.Data  p{
+    margin: 5px 0 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.Data div{
+    display: flex;
+}
+.Data div p:not(:first-child){
+    margin-left: 10px;
+}
+
+.GridItem a{
+    display: block;
+    width: 100%;
+    height: 100%;}
+
+</style>
+
+

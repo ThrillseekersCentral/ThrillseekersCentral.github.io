@@ -1,0 +1,26 @@
+<nav>
+    <div class="NavContainer">
+
+        <div class="LogoContainer">
+            <img style="width: 60px;" src="/assets/img/pageicon.png">
+            <span class="" style=" margin-left: 10px; ">Thrillseekers Central</span>
+        </div>
+
+        <div class="Spacer"></div>
+
+        <div class="NavLinks">
+            <a id="Nav_Home" class="NavLink" style="--NavHighlight: #a1c485cc;" href="/">Home</a>
+            <a id="Nav_Articles" class="NavLink Nav_HideMobile" style="--NavHighlight: #ee9edfcc;"
+                href="/articles/">Articles</a>
+            <a id="Nav_SocialMedia" class="NavLink Nav_HideMobile" style="--NavHighlight: #b29eeecc;"
+                href="/socials">Social Media</a>
+            <a id="Nav_Discord" class="NavSButton Nav_HideMobile" href="https://discord.gg/qqBztCADTT">Discord</a>
+
+            <div onclick="SidebarToggle()" id="BurgerIconID" style="--NavHighlight: #ef6f98c;" class="NavBurger"> <span class="fa-solid fa-bars burgericon" aria-hidden="true"></span></div>
+        </div>
+
+
+    </div>
+</nav>
+
+{% include "components/sidebar.njk" %}

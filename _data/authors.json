@@ -1,0 +1,24 @@
+[
+    {
+        "id": "1",
+        "name": "Jake",
+        "Rank": "Director",
+        "Socials": {
+            "Instagram": "https://www.instagram.com/jplays_12/"
+        }
+    },
+    {
+        "id": "2",
+        "name": "Lukas",
+        "Rank": "Director",
+        "Socials": {
+        }
+    },
+    {
+        "id": "2",
+        "name": "Donnie",
+        "Rank": "Director",
+        "Socials": {
+        }
+    }
+]
