@@ -1,41 +1,45 @@
+const pluginTOC = require('eleventy-plugin-toc');
+const slugify = require("slugify");
+const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
+
 module.exports = function (eleventyConfig) {
-  // Copy `img/` to `_site/img`
-  eleventyConfig.addPassthroughCopy("img");
-
-  // Copy `css/fonts/` to `_site/css/fonts`
-  // Keeps the same directory structure.
-  eleventyConfig.addPassthroughCopy("assets/");
-
-  // Copy any .jpg file to `_site`, via Glob pattern
-  // Keeps the same directory structure.
-  eleventyConfig.addPassthroughCopy("**/*.jpg");
-
-  eleventyConfig.addPassthroughCopy("robots.txt");
-
-  eleventyConfig.addFilter("sortByDate", function (posts) {
-    return posts.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+  // Initialize markdown-it with options
+  const md = markdownIt({
+    html: true,
+    linkify: true,
   });
 
+  // Add the markdown-it-anchor plugin
+  md.use(markdownItAnchor);
+
+  // Add plugins
+  eleventyConfig.addPlugin(pluginTOC, {
+    tags: ['h1','h2', 'h3', 'h4'],
+    wrapper: '',
+    
+  });
+
+  eleventyConfig.setLibrary("md", md); // Set the markdown library to Eleventy
+
+  // Copy assets
+  eleventyConfig.addPassthroughCopy("img");
+  eleventyConfig.addPassthroughCopy("assets/");
+  eleventyConfig.addPassthroughCopy("**/*.jpg");
+  eleventyConfig.addPassthroughCopy("robots.txt");
+
+  // Custom filters
+  eleventyConfig.addFilter("sortByDate", function (posts) {
+    return posts.slice().sort((a, b) => new Date(b.data?.date || b.date) - new Date(a.data?.date || a.date));
+  });
 
   eleventyConfig.addFilter("formatDate", function(dateString) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
   });
 
-  // Custom filter to sort posts by date
-  eleventyConfig.addFilter("sortByDate", function(posts) {
-    return posts.slice().sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
-  });
-
+  // Custom collection
   eleventyConfig.addCollection("articles", function (collectionApi) {
-    return collectionApi
-      .getAll()
-      .filter(
-        (item) =>
-          !item.url.startsWith("/articles/**") // &&
-          // !item.url.startsWith("/articles")
-      );
+    return collectionApi.getAll().filter(item => !item.url.startsWith("/articles/"));
   });
-
-
 };
