@@ -125,11 +125,3 @@ background-color:var(--secondary);
 .PostInfo span{font-size: 16px; font-weight: 500;color: var(--text-light);}
 .PostInfo{margin: 10px;}
 .PostInfo i{margin-right: 5px;}
-
-article a::after {
-    content: '\f08e';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    margin-left: 0.5em;
-    font-size: 0.8em;
-}

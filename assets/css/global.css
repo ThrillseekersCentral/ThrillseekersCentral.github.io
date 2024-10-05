@@ -266,4 +266,14 @@ border-radius: 6px;
         }
 
 
+article a::after {
+    content: '\f08e';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-left: 0.5em;
+    font-size: 0.8em;
+}
+
+
+
         
