@@ -1,0 +1,86 @@
+#PostTag_park-review{
+    --TagBackground: #ea6f41;
+    --TagText: #551e09;
+}
+
+#PostTag_first-look{
+    --TagBackground: #09551a;
+    --TagText: #41ea65;
+}
+
+#PostTag_discord-update{
+    --TagBackground: #5865F2;
+    --TagText: #FFFFFF;
+}
+
+
+.PageInfo_Rank_Director{color: #ef6f6f;}
+.PageInfo_Rank_GuestRelations{color: #a1c485;}
+.PageInfo_Rank_CastMember{color: #d8ce71;}
+
+/* ------------ Park ------------ */
+
+#PostTag_alton-towers{
+    --TagBackground: #3b2e7b;
+    --TagText: #c7c0e8;
+}
+
+#PostTag_chessington-woa{
+    --TagBackground: #00592D;
+    --TagText: #59ffad;
+}
+
+#PostTag_legoland{
+    --TagBackground: #ffcf00;
+    --TagText: #000000;
+}
+
+#PostTag_thorpe-park{
+    --TagBackground: #2A276E;
+    --TagText: #E6688D;
+}
+
+#PostTag_merlin{
+    --TagBackground: #ffd500;
+    --TagText: #00378b;
+}
+
+
+
+#PostTag_paultons-park{
+    --TagBackground: #57007a;
+    --TagText: #d97aff;
+}
+
+#PostTag_drayton-manor{
+    --TagBackground: #41448e;
+    --TagText: #dedff0;
+}
+
+#PostTag_pleasure-beach-resort{
+    --TagBackground: #007fa3;
+    --TagText: #a3ebff;
+}
+
+#PostTag_universal{
+    --TagBackground: #0368d9;
+    --TagText: #dcedff;
+}
+
+
+/* ^ ------------ Park ------------ ^ */
+
+
+/* ------ Thorpe Park ------ */
+
+#PostTag_hyperia{  
+    --TagBackground: #DE9C40;
+    --TagText: #F1F1F5;
+}
+
+/* ------ Alton Towers ------ */
+
+#PostTag_nemesis-reborn{  
+    --TagBackground: #b31919;
+    --TagText: #f9d2d2;
+}

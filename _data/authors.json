@@ -10,6 +10,7 @@
         "id": "1",
         "name": "Jake",
         "Rank": "Director",
+        "description":"",
         "Socials": {
             "Instagram": "https://www.instagram.com/jplays_12/"
         }
@@ -18,13 +19,15 @@
         "id": "2",
         "name": "Lukas",
         "Rank": "Director",
+        "description":"",
         "Socials": {
         }
     },
     {
-        "id": "2",
+        "id": "3",
         "name": "Donnie",
         "Rank": "Director",
+        "description":"",
         "Socials": {
         }
     }
