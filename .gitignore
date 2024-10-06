@@ -133,4 +133,5 @@ dist
 
 # 11ty
 
-._site/
+/_site/
+
