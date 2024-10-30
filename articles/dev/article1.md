@@ -6,7 +6,6 @@ tags:
 title: "Test Article 2024"
 tag: "Dev Tester"
 summary: "Dev Test Page"
-type: "1"
 ---
 
 ## Chapt 1. Lorem
