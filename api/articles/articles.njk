@@ -1,0 +1,17 @@
+---
+permalink: /api/articles/articles.json
+eleventyExcludeFromCollections: true
+---
+[
+{% for article in collections.articles %}
+  {% if loop.index <= 5 %}
+  {
+    "title": "{{ article.data.title }}",
+    "topic": "{{ article.data.tag }}",
+    "summary": "{{ article.data.summary }}",
+    "date": "{{ article.data.date | formatDate }}",
+    "tags": {{ article.data.tags | dump | safe }},
+    "img": "{{article.data.pageimg}}",
+    "url": "{{ article.url }}"
+  }{% if not loop.last and loop.index < 5 %},{% endif %}{% endif %}{% endfor %}
+]

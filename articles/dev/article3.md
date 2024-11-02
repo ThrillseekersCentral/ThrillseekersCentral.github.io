@@ -9,7 +9,7 @@ tags:
 title: "Test Article 2024"
 tag: "Dev Tester"
 summary: "Dev Test Page"
-date: 2017-01-03
+date: 1017-03-13
 ---
 
 ## Chapt 1. Lorem

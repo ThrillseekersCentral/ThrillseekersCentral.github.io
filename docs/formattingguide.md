@@ -3,51 +3,122 @@ title: "Formatting Guide"
 layout: layout/astra-wiki.njk
 ---
 
-# H1 Heading
+# Markdown Cheat Sheet
 
-## H2 Heading
+Thanks for visiting [The Markdown Guide](https://www.markdownguide.org)!
 
-### H3 Heading
+This Markdown cheat sheet provides a quick overview of all the Markdown syntax elements. It can’t cover every edge case, so if you need more information about any of these elements, refer to the reference guides for [basic syntax](https://www.markdownguide.org/basic-syntax/) and [extended syntax](https://www.markdownguide.org/extended-syntax/).
 
-#### H4 Heading
+## Basic Syntax
 
-**Bold Text**
+These are the elements outlined in John Gruber’s original design document. All Markdown applications support these elements.
 
-*Italic Text*
+### Heading
 
-***Bold and Italic Text***
+# H1
+## H2
+### H3
 
-[Link Text](http://example.com)
+### Bold
 
-![Image Alt Text](http://example.com/image.jpg)
+**bold text**
 
-> Blockquote text
+### Italic
 
-- Unordered List Item 1
-- Unordered List Item 2
-  - Nested Unordered List Item
+*italicized text*
 
-1. Ordered List Item 1
-2. Ordered List Item 2
-   1. Nested Ordered List Item
+### Blockquote
 
-`Inline code`
+> blockquote
 
-```js
-function SidebarToggle() {
+### Ordered List
 
-var element = document.getElementById("SideBar");
-element.classList.toggle("SideBarActive");
+1. First item
+2. Second item
+3. Third item
 
-var element = document.getElementById("BurgerIconID");
-element.classList.toggle("burgericonActive");
+### Unordered List
+
+- First item
+- Second item
+- Third item
+
+### Code
+
+`code`
+
+### Horizontal Rule
+
+---
+
+### Link
+
+[Markdown Guide](https://www.markdownguide.org)
+
+### Image
+
+![alt text](https://www.markdownguide.org/assets/images/tux.png)
+
+## Extended Syntax
+
+These elements extend the basic syntax by adding additional features. Not all Markdown applications support these elements.
+
+### Table
+
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
+
+### Fenced Code Block
+
+```
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
 }
 ```
 
----
-Horizontal Rule
+### Footnote
 
-| Table Header 1 | Table Header 2 |
-|----------------|----------------|
-| Row 1 Col 1    | Row 1 Col 2    |
-| Row 2 Col 1    | Row 2 Col 2    |
+Here's a sentence with a footnote. [^1]
+
+[^1]: This is the footnote.
+
+### Heading ID
+
+### My Great Heading {#custom-id}
+
+### Definition List
+
+term
+: definition
+
+### Strikethrough
+
+~~The world is flat.~~
+
+### Task List
+
+- [x] Write the press release
+- [ ] Update the website
+- [ ] Contact the media
+
+### Emoji
+
+That is so funny! :joy:
+
+(See also [Copying and Pasting Emoji](https://www.markdownguide.org/extended-syntax/#copying-and-pasting-emoji))
+
+### Highlight
+
+I need to highlight these ==very important words==.
+
+### Subscript
+
+H~2~O
+
+### Superscript
+
+X^2^

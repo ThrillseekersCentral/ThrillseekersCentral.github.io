@@ -14,7 +14,10 @@ templateClass: tmpl-home
     <link rel="stylesheet" href="/assets/css/article_parktags.css" />
     <link rel="stylesheet" href="/assets/css/global.css" />
     <link rel="stylesheet" href="/assets/css/article.css" />
+    <link rel="stylesheet" href="/assets/css/ArticleTextFormatting.css" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -50,7 +53,7 @@ templateClass: tmpl-home
 
                 </p>
                 <p id="ranks" class="PageInfo_Rank"></p>
-                <p class="PageInfo_Date"><i class="fa-solid fa-clock"></i> {{ page.date | formatDate }}</p>
+                <p class="PageInfo_Date"><i class="fa-solid fa-clock"></i> {{ date | formatDate }}</p>
             </div>
 
 

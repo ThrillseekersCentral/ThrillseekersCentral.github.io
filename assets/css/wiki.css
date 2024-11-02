@@ -131,3 +131,21 @@ details[open] .SideBarSummary svg {
 }
 }
 
+
+
+.popup {
+  background-color: var(--background-800);
+  color: var(--text-50);
+  border-left: 4px solid var(--BorderC);
+  padding: 16px; 
+  border-radius: 4px;
+  width: 50%;
+
+}
+.popup p{margin: 0;}
+
+.popup h1 {
+  font-size: 1.5em; /* Adjust heading size */
+  margin: 0 0 8px; /* Margin for spacing */
+  color: var(--HeadC);
+}

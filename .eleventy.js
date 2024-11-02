@@ -35,9 +35,13 @@ module.exports = function (eleventyConfig) {
     return new Date(dateString).toLocaleDateString(undefined, options);
   });
 
-  // 28/10 Updated to work correctly. this will only pick up /article/** now.
-eleventyConfig.addCollection("articles", function (collectionApi) {
-  return collectionApi.getAll().filter(item => item.url && item.url.startsWith("/article/"));
-});
+  eleventyConfig.addFilter("find", function(array, attr, value) {
+    return array.find(item => item[attr] === value);
+  });
+
+  
+  eleventyConfig.addCollection("articles", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("./articles/**/*.md");
+  });
 
 };
