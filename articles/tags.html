@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles Page</title>
+    <style>
+        .article { margin-bottom: 20px; }
+        .pagination { display: flex; gap: 10px; }
+        .pagination button { padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <div id="articles-container"></div>
+    <div class="pagination" id="pagination-container"></div>
+
+    <script>
+        const apiEndpoint = '/api/articles/articles.json';
+        const articlesContainer = document.getElementById('articles-container');
+        const paginationContainer = document.getElementById('pagination-container');
+        const articlesPerPage = 2;
+        
+        let articlesData = [];
+        let filteredArticles = [];
+        let currentPage = 1;
+
+        // Function to fetch articles from API
+        async function fetchArticles() {
+            try {
+                const response = await fetch(apiEndpoint);
+                articlesData = await response.json();
+                filterAndDisplayArticles();
+            } catch (error) {
+                console.error("Failed to fetch articles:", error);
+            }
+        }
+
+        // Check for "tags" in URL query parameters
+        function getQueryTag() {
+            const urlParams = new URLSearchParams(window.location.search);
+            console.log(urlParams.get("tags"))
+            return urlParams.get("tags");
+        }
+        
+        // Filter and sort articles based on the query tag or default to latest articles
+        function filterAndDisplayArticles() {
+            const queryTag = getQueryTag();
+            if (queryTag) {
+                filteredArticles = articlesData.filter(article => 
+                    article.tags && article.tags.includes(queryTag)
+                );
+            } else {
+                filteredArticles = [...articlesData];
+            }
+            
+            filteredArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+            displayArticles();
+        }
+
+        // Display articles based on the current page
+        function displayArticles() {
+            articlesContainer.innerHTML = "";
+            paginationContainer.innerHTML = "";
+
+            const start = (currentPage - 1) * articlesPerPage;
+            const end = start + articlesPerPage;
+            const articlesToDisplay = filteredArticles.slice(start, end);
+
+            articlesToDisplay.forEach(article => {
+                const articleElement = document.createElement('div');
+                articleElement.classList.add('article');
+                articleElement.innerHTML = `
+                    <h2>${article.title}</h2>
+                    <p><strong>Topic:</strong> ${article.topic}</p>
+                    <p><strong>Summary:</strong> ${article.summary}</p>
+                    <p><strong>Date:</strong> ${article.date}</p>
+                    <p><strong>Tags:</strong> ${article.tags.join(', ')}</p>
+                    <a href="${article.url}">Read More</a>
+                `;
+                articlesContainer.appendChild(articleElement);
+            });
+
+            createPagination();
+        }
+
+        // Create pagination buttons
+        function createPagination() {
+            const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.onclick = () => {
+                    currentPage = i;
+                    displayArticles();
+                };
+                if (i === currentPage) button.disabled = true;
+                paginationContainer.appendChild(button);
+            }
+        }
+
+        fetchArticles();
+    </script>
+</body>
+</html>

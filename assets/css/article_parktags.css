@@ -13,6 +13,10 @@
     --TagText: #FFFFFF;
 }
 
+#PostTag_recap{
+    --TagBackground: #b29eee;
+    --TagText: #ffffff;
+}
 
 .PageInfo_Rank_Director{color: #ef6f6f;}
 .PageInfo_Rank_GuestRelations{color: #a1c485;}

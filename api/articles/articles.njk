@@ -2,16 +2,14 @@
 permalink: /api/articles/articles.json
 eleventyExcludeFromCollections: true
 ---
-[
-{% for article in collections.articles %}
-  {% if loop.index <= 5 %}
+[{% for article in collections.articles | reverse %}{% if loop.index <= 20 %}
   {
     "title": "{{ article.data.title }}",
     "topic": "{{ article.data.tag }}",
     "summary": "{{ article.data.summary }}",
-    "date": "{{ article.data.date | formatDate }}",
+    "date": "{{ article.data.date | formatDate_ddmmyyyy }}",
     "tags": {{ article.data.tags | dump | safe }},
     "img": "{{article.data.pageimg}}",
     "url": "{{ article.url }}"
-  }{% if not loop.last and loop.index < 5 %},{% endif %}{% endif %}{% endfor %}
+  }{% if not loop.last and loop.index < 20 %},{% endif %}{% endif %}{% endfor %}
 ]
