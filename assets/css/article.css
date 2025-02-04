@@ -24,6 +24,7 @@
     max-height: 400px;
     object-fit: cover;
     margin: 0;
+    border-radius: 0px 0 12px 12px;
 }
 
 .article_pageimg span{
@@ -39,8 +40,8 @@ font-weight: bold;
 text-align: center;
 padding: 3px 12px;
 border-radius: 3px;
-color: var(--secondary-content);
-background-color:var(--secondary);
+color: var(--TagText, var(--secondary-content));
+background-color: var(--TagBackground, var(--secondary));
 }
 .PageInfo_Title{font-size: 40px; font-weight: bold; margin: 0; color: var(--text);}
 .PageInfo_Rank{font-size: 20px; margin: 0; font-weight: normal; font-weight: 500;}
@@ -75,6 +76,7 @@ background-color:var(--secondary);
     flex-direction: row;
     margin-inline:auto;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .ArticleTags a{
@@ -87,6 +89,7 @@ background-color:var(--secondary);
     background-color: var(--TagBackground, var(--secondary));
     text-decoration: none;
     margin-inline: 5px;
+    margin-bottom: 10px;
     transform: translate(0px, 0px) scale(1);
     transition: transform 0.3s ease-in-out;
 }

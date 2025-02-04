@@ -1,0 +1,18 @@
+---
+permalink: /api/articles/featured.json
+eleventyExcludeFromCollections: true
+---
+
+{% set found = false %}
+[
+{% for article in collections.articles %}{% if article.data.featured and not found %}
+      {
+        "title": "{{ article.data.title }}",
+        "topic": "{{ article.data.tag }}",
+        "summary": "{{ article.data.summary }}",
+        "date": "{{ article.data.date | formatDate_ddmmyyyy }}",
+        "tags": {{ article.data.tags | dump | safe }},
+        "img": "{{ article.data.pageimg }}",
+        "url": "{{ article.url }}"
+      }
+{% set found = true %}{% endif %}{% endfor %}]

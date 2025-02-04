@@ -1,0 +1,220 @@
+---
+layout: layout/main.njk
+title: "Articles"
+---
+<!-- All this gets filled in with JS-->
+<div class="ArticleContainer">
+  <section id="featured" class="Featured">
+  </section>
+  <section id="ArticleRow3" class="ArticleRow3">
+  </section>
+</div>
+<!-- All this gets filled in with JS-->
+ 
+<style>
+    .ArticleContainer{
+        display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    }
+
+:root{
+    --Wrap: row;
+}
+@media (max-width: 888px) {
+    :root{
+        --Wrap: column;
+    }
+
+    .MainTopic img{
+        max-width: 80% !important;
+    }
+    .content{
+        width:80% !important;
+        margin-top: 20px;
+    }
+
+}
+
+@media (min-width: 888px) {
+    section {
+        max-width: 920px;
+    }
+
+}
+section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.MainTopic {
+    display: flex;
+    flex-direction: var(--Wrap);
+    flex-wrap: wrap;
+    align-content: center
+}
+
+.MainTopic img {
+    max-width: 50%;
+    border-radius: 6px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin-inline: 10px;
+}
+
+section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-50);
+    margin: 0;
+}
+
+section span {
+    font-weight: 600;
+}
+
+section p, section  span {
+    font-size: 17px;
+    color: var(--text-200);
+}
+
+.ReadMore {
+    margin-top: auto;
+    padding: 6px 15px;
+    background-color: var(--primary-400);
+    border-radius: 3px;
+    text-decoration: none;
+    color: var(--primary-100);
+    width: fit-content;
+    transition: background-color 0.3s ease;
+    font-size: 19px;
+    font-weight: 700;
+}
+.ReadMore:hover,
+.ReadMore:focus{
+    background-color: var(--primary-500);
+    color: var(--primary-50);
+}
+
+.ArticleRow3{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.Article{width: calc(33%)}
+
+.Article a{
+    text-decoration: none;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    display: block;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.Article a:hover{
+    background-color: var(--background-800);
+}
+
+.Article img{width: 100%;
+border-radius: 3px;
+aspect-ratio: 16/9;
+}
+
+.Article h2{
+    color: var(--text-100);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.Article span {
+    font-weight: 600;
+}
+
+.Article p, section  span {
+    font-size: 14px;
+    color: var(--text-300);
+}
+
+</style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Function to insert featured article
+      function insertFeaturedArticle(data) {
+        const container = document.getElementById('featured');
+        const article = data[0]; // Get the first featured article
+
+        const articleElement = document.createElement('div');
+        articleElement.classList.add('MainTopic');
+
+        articleElement.innerHTML = `
+          <img src="${article.img}">
+          <div class="content">
+            <h2>${article.title}</h2>
+            <span>${article.date}</span>
+            <p>${article.summary}</p>
+            <a class="ReadMore" href="${article.url}">Read More</a>
+          </div>
+        `;
+
+        container.appendChild(articleElement);
+      }
+
+      // Function to insert articles into the article row
+      function insertArticles(data, containerId) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = ''; // Clear existing content
+
+        data.forEach(article => {
+          const articleElement = document.createElement('div');
+          articleElement.classList.add('Article');
+          if(!article.img)(
+            ArticleImage = "/assets/img/blank.png"
+          )
+          else{
+            ArticleImage = article.img
+          }
+
+
+          articleElement.innerHTML = `
+            <a href="${article.url}">
+              <img src="${ArticleImage}" alt="${article.title}">
+              <h2>${article.title}</h2>
+              <span>${article.date}</span>
+              <p>${article.summary}</p>
+            </a>
+          `;
+
+          container.appendChild(articleElement);
+        });
+      }
+
+      // Fetch data from the featured articles API
+      fetch('/api/articles/featured.json')
+        .then(response => response.json())
+        .then(data => {
+          insertFeaturedArticle(data); // Insert into #featured div
+        })
+        .catch(error => console.error('Error fetching featured article:', error));
+
+      // Fetch data from the general articles API
+      fetch('/api/articles/articles.json')
+        .then(response => response.json())
+        .then(data => {
+          // Get the first 3 articles and insert them into #ArticleRow3
+          insertArticles(data.slice(0, 3), 'ArticleRow3');
+        })
+        .catch(error => console.error('Error fetching articles:', error));
+    });
+  </script>

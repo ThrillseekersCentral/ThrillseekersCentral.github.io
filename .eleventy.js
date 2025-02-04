@@ -35,6 +35,14 @@ module.exports = function (eleventyConfig) {
     return new Date(dateString).toLocaleDateString(undefined, options);
   });
 
+  eleventyConfig.addFilter("formatDate_ddmmyyyy", function(dateString){
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  });
+
   eleventyConfig.addFilter("find", function(array, attr, value) {
     return array.find(item => item[attr] === value);
   });
