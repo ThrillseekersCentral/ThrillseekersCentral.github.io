@@ -1,33 +1,38 @@
 [
-
-  
+  {
+    "title": "2024 Theme Parks Recap",
+    "topic": "Dev Tester",
+    "summary": "And with that, the theme park season is officially over! With some of our favorite parks shutting their gates for the winter, let&#39;s take a look back into what happened this year and a look into our community’s favorite memories!",
+    "date": "01/01/2025",
+    "tags": ["Yearly Recap","Hyperia"],
+    "img": "",
+    "url": "/articles/recap/--- layout: layout/2024/"
+  },
   {
     "title": "Test Article 2024",
     "topic": "Dev Tester",
     "summary": "Dev Test Page",
-    "date": "March 13, 1017",
+    "date": "03/01/2017",
     "tags": ["Test","Test2","Test3"],
     "img": "",
-    "url": "/articles/dev/article3/"
+    "url": "/articles/dev/article1/"
   },
-  
   {
     "title": "Test Article 2024",
     "topic": "Dev Tester",
     "summary": "Dev Test Page",
-    "date": "March 6, 2016",
+    "date": "06/03/2016",
     "tags": ["Test","Test2","Test3"],
     "img": "",
     "url": "/articles/dev/article2/"
   },
-  
   {
     "title": "Test Article 2024",
     "topic": "Dev Tester",
     "summary": "Dev Test Page",
-    "date": "January 3, 2017",
+    "date": "13/03/1017",
     "tags": ["Test","Test2","Test3"],
     "img": "",
-    "url": "/articles/dev/article1/"
+    "url": "/articles/dev/article3/"
   }
 ]

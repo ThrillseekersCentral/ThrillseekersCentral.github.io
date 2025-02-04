@@ -21,7 +21,7 @@
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content=" Articles - Thrillseekers Central " />
-<meta property="twitter:description" content="" />
+<meta property="twitter:description" content="Thrillseekers Central is a community with the goal of celebrating theme parks worldwide and more!" />
 <meta name="theme-color" content="#9ecdee">
 
 <meta property="og:site_name" content="Thrillseekers Central"><meta property="og:url" content="">
@@ -99,187 +99,222 @@ element.classList.toggle("burgericonActive");
 
     <div class="Content">
 
-        <link rel="stylesheet" href="/assets/css/article_parktags.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-<h1 style="font-size: 50px; font-weight: 700; width: fit-content; margin-inline:auto">Theme Park Articles</h1>
-
-<div class="GridContainer">
-
-    
-        
-  
-      <div class="Grid_1 GridItem" style="--gridbackground: url(/assets/img/blank.png)">
-        <a href="/articles/dev/article1/">
-          <div class="Data">
-            <span id="PostTag_dev-tester">Dev Tester</span>
-            <h3>Test Article 2024</h3>
-            <div>
-              <p><i class="fa-regular fa-clock"></i> January 3, 2017</p>
-              <p><i class="fa-regular fa-user"></i> </p>
-            </div>
-          </div>
-        </a>
-      </div> 
-  
-    
-  
-        
-  
-      <div class="Grid_2 GridItem" style="--gridbackground: url(/assets/img/blank.png)">
-        <a href="/articles/dev/article2/">
-          <div class="Data">
-            <span id="PostTag_dev-tester">Dev Tester</span>
-            <h3>Test Article 2024</h3>
-            <div>
-              <p><i class="fa-regular fa-clock"></i> March 6, 2016</p>
-              <p><i class="fa-regular fa-user"></i> </p>
-            </div>
-          </div>
-        </a>
-      </div> 
-  
-    
-  
-        
-  
-      <div class="Grid_3 GridItem" style="--gridbackground: url(/assets/img/blank.png)">
-        <a href="/articles/dev/article3/">
-          <div class="Data">
-            <span id="PostTag_dev-tester">Dev Tester</span>
-            <h3>Test Article 2024</h3>
-            <div>
-              <p><i class="fa-regular fa-clock"></i> March 13, 1017</p>
-              <p><i class="fa-regular fa-user"></i> </p>
-            </div>
-          </div>
-        </a>
-      </div> 
-  
-    
-  
-
-    <div class="Grid_4" style="display: flex;align-items: center;">
-        <a href="/articles/dev/article1/" style="--ABackground:#3d007b; --AText:#bc7bff" href="#"><i class="fa-regular fa-clock"></i> Latest Post</a>
-        <a style="--ABackground:#3c7b00; --AText:#bbff7b" href="#"><i class="fa-regular fa-user"></i> Authors</a>
-    </div>
-
+        <!-- All this gets filled in with JS-->
+<div class="ArticleContainer">
+  <section id="featured" class="Featured">
+  </section>
+  <section id="ArticleRow3" class="ArticleRow3">
+  </section>
 </div>
-
+<!-- All this gets filled in with JS-->
+ 
 <style>
-
-    .Grid_4 a{
-        background-color: var(--ABackground);
-        color: var(--AText);
-        font-size: 20px;
-        padding: 6px 12px;
-        border-radius: 6px;
-        font-weight: 550;
-        text-decoration: none;
-        margin-right: 12px;
-        transform: scale(1);
-        transition: transform 0.3s ease-in-out;
-    }
-    .Grid_4 a:hover{
-        transform: scale(1.1);
+    .ArticleContainer{
+        display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
     }
 
-    .GridContainer {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr) 0.9fr;
-        grid-template-rows: 0.2fr repeat(2, 1.2fr);
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
+:root{
+    --Wrap: row;
+}
+@media (max-width: 888px) {
+    :root{
+        --Wrap: column;
     }
 
-    .Grid_1 {
-        grid-area: 1 / 1 / 4 / 3;
-        height: 510px;
+    .MainTopic img{
+        max-width: 80% !important;
+    }
+    .content{
+        width:80% !important;
+        margin-top: 20px;
     }
 
-    .Grid_4 {
-        grid-area: 1 / 3 / 2 / 4;
-    }
-
-    .Grid_2 {
-        grid-area: 2 / 3 / 3 / 4;
-    }
-
-    .Grid_3 {
-        grid-area: 3 / 3 / 4 / 4;
-    }
-
-    .Data {
-        position: absolute;
-        bottom: 0;
-        padding: 10px;
-        width: 90%;
-    }
-
-    .GridItem{position: relative;overflow: hidden;border-radius: 12px; border: 1px solid var(--border);}
-
-    .GridItem::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: var(--gridbackground);
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    transition: filter 0.3s ease;
-    border-radius: 12px;
 }
 
-.GridItem:hover::before {
-    filter: blur(5px); /* Adjust the blur intensity as needed */
-}
+@media (min-width: 888px) {
+    section {
+        max-width: 920px;
+    }
 
-    .Data span{
-    padding: 3px 6px;
-    background-color: var(--TagBackground);
-    color: var(--TagText);
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    margin: 5px 0 0;
 }
-
-.Data h3{
-    color: var(--text);
-    font-size: 25px;
-    font-weight: bold;
-    margin: 5px 0 0;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    max-width: 90%;
-}
-
-.Data  p{
-    margin: 5px 0 0;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text);
-}
-
-.Data div{
+section {
     display: flex;
-}
-.Data div p:not(:first-child){
-    margin-left: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
 }
 
-.GridItem a{
+.MainTopic {
+    display: flex;
+    flex-direction: var(--Wrap);
+    flex-wrap: wrap;
+    align-content: center
+}
+
+.MainTopic img {
+    max-width: 50%;
+    border-radius: 6px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin-inline: 10px;
+}
+
+section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-50);
+    margin: 0;
+}
+
+section span {
+    font-weight: 600;
+}
+
+section p, section  span {
+    font-size: 17px;
+    color: var(--text-200);
+}
+
+.ReadMore {
+    margin-top: auto;
+    padding: 6px 15px;
+    background-color: var(--primary-400);
+    border-radius: 3px;
+    text-decoration: none;
+    color: var(--primary-100);
+    width: fit-content;
+    transition: background-color 0.3s ease;
+    font-size: 19px;
+    font-weight: 700;
+}
+.ReadMore:hover,
+.ReadMore:focus{
+    background-color: var(--primary-500);
+    color: var(--primary-50);
+}
+
+.ArticleRow3{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.Article{width: calc(33%)}
+
+.Article a{
+    text-decoration: none;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
     display: block;
-    width: 100%;
-    height: 100%;}
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.Article a:hover{
+    background-color: var(--background-800);
+}
+
+.Article img{width: 100%;
+border-radius: 3px;
+aspect-ratio: 16/9;
+}
+
+.Article h2{
+    color: var(--text-100);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.Article span {
+    font-weight: 600;
+}
+
+.Article p, section  span {
+    font-size: 14px;
+    color: var(--text-300);
+}
 
 </style>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Function to insert featured article
+      function insertFeaturedArticle(data) {
+        const container = document.getElementById('featured');
+        const article = data[0]; // Get the first featured article
+
+        const articleElement = document.createElement('div');
+        articleElement.classList.add('MainTopic');
+
+        articleElement.innerHTML = `
+          <img src="${article.img}">
+          <div class="content">
+            <h2>${article.title}</h2>
+            <span>${article.date}</span>
+            <p>${article.summary}</p>
+            <a class="ReadMore" href="${article.url}">Read More</a>
+          </div>
+        `;
+
+        container.appendChild(articleElement);
+      }
+
+      // Function to insert articles into the article row
+      function insertArticles(data, containerId) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = ''; // Clear existing content
+
+        data.forEach(article => {
+          const articleElement = document.createElement('div');
+          articleElement.classList.add('Article');
+          if(!article.img)(
+            ArticleImage = "/assets/img/blank.png"
+          )
+          else{
+            ArticleImage = article.img
+          }
 
 
+          articleElement.innerHTML = `
+            <a href="${article.url}">
+              <img src="${ArticleImage}" alt="${article.title}">
+              <h2>${article.title}</h2>
+              <span>${article.date}</span>
+              <p>${article.summary}</p>
+            </a>
+          `;
+
+          container.appendChild(articleElement);
+        });
+      }
+
+      // Fetch data from the featured articles API
+      fetch('/api/articles/featured.json')
+        .then(response => response.json())
+        .then(data => {
+          insertFeaturedArticle(data); // Insert into #featured div
+        })
+        .catch(error => console.error('Error fetching featured article:', error));
+
+      // Fetch data from the general articles API
+      fetch('/api/articles/articles.json')
+        .then(response => response.json())
+        .then(data => {
+          // Get the first 3 articles and insert them into #ArticleRow3
+          insertArticles(data.slice(0, 3), 'ArticleRow3');
+        })
+        .catch(error => console.error('Error fetching articles:', error));
+    });
+  </script>
 
     </div>
 
